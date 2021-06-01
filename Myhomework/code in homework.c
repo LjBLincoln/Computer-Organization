@@ -1,3 +1,20 @@
+// homework8
+int array[N] = {…};
+for (int i = 0; i < N; i++)
+    if (array[i] != 0)
+		array[i]++;
+	li a0, N
+	la a1, array
+loop:
+	lw a2, 0(a1)
+	beqz a2, endif
+	addi a2, a2, 1
+	sw a2, 0(a1)
+endif:
+	addi a0, a0, -1
+	addi a1, a1, 4
+	bnez a0, loop
+
 
 //homework7
 intx [ 1 6 ] ;
