@@ -50,3 +50,24 @@ make clean：清除编译产生的可执行文件及目标文件(object file，*
 
 make 需要 sbt , **`sbt`** 全称为 **`Simple Build Tool`**,是 **`Scala`** 项目中的标准构建工具,类似于 **`Java`** 下的 **`Maven/Groovy`** 中的 **`Gradle`**。由于SBT默认从国外下载依赖，导致第一次构建非常缓慢，使用体验非常糟糕
 
+
+
+make run 做了什么:
+
+运行 sbt，Scala 构建工具，选择 rv32 1stage 项目，并运行生成处理器的 Verilog RTL 描述的 Chisel 代码。 生成的 Verilog 代码可以在 emulator/rv32_1stage/generated-src/ 中找到。
+
+ 运行verilator，一种将Verilog 编译为周期精确的C++ 仿真代码的开源工具
+
+ 将生成的C++ 代码编译为称为模拟器的二进制文件。 
+
+ 运行仿真器二进制文件，将提供的 RISC-V 二进制文件加载到模拟内存中。 所有 RISC-V 测试和基准测试都将在调用 \make run 时执行。
+
+有几个方向:
+
+1. 写15行内C语言来编译
+2.  定义 一个微码 
+
+
+
+
+
